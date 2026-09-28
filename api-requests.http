@@ -1,0 +1,43 @@
+### Use with the VS Code "REST Client" extension (or copy into Postman)
+@host = http://localhost:3000
+@key = change-me-to-a-long-random-string
+
+### Health
+GET {{host}}/health
+
+### Create task (protected)
+POST {{host}}/api/tasks
+Content-Type: application/json
+x-api-key: {{key}}
+
+{ "title": "Finish Progree internship", "priority": 1, "status": "in_progress" }
+
+### Create WITHOUT key -> 401
+POST {{host}}/api/tasks
+Content-Type: application/json
+
+{ "title": "Should fail" }
+
+### Invalid data -> 400
+POST {{host}}/api/tasks
+Content-Type: application/json
+x-api-key: {{key}}
+
+{ "status": "wrong" }
+
+### List (public)
+GET {{host}}/api/tasks?status=in_progress&page=1&limit=10
+
+### Get one
+GET {{host}}/api/tasks/1
+
+### Update
+PUT {{host}}/api/tasks/1
+Content-Type: application/json
+x-api-key: {{key}}
+
+{ "status": "done" }
+
+### Delete
+DELETE {{host}}/api/tasks/1
+x-api-key: {{key}}
