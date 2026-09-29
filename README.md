@@ -25,6 +25,29 @@ schema.sql                  Relational schema
 api-requests.http           Ready-made requests (REST Client / Postman)
 ```
 
+## Screenshots
+
+### Automated tests (23 passing)
+![Tests passing](screenshots/01-tests-passing.png)
+
+### Create a task, 201 Created
+![Create task](screenshots/02-create-201.png)
+
+### Missing API key, 401 Unauthorized
+![No API key](screenshots/03-no-key-401.png)
+
+### Invalid data, 400 Bad Request
+![Validation error](screenshots/04-invalid-400.png)
+
+### List tasks, 200 OK
+![List tasks](screenshots/05-list-200.png)
+
+### Data stored in PostgreSQL
+![Database table](screenshots/07-database-table.png)
+
+### Delete a task, 204 No Content
+![Delete task](screenshots/08-delete-204.png)
+
 ## Run
 ```bash
 docker compose up -d          # PostgreSQL
